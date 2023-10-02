@@ -1,0 +1,154 @@
+:root {
+  --light-color: #fff;
+  --active-color: #5aa81f;
+  --active-hover-color: #3c7014;
+  --active-drag-color: #e5fcd4;
+  --finished-color: #700e83;
+  --finished-drag-color: #fae0ff;
+  --border-color: #ccc;
+  --background-color: #eee;
+  --form-background-color: #f7f7f7;
+  --text-color: #575757;
+  --border-radius: 0.25rem;
+  --border-radius-l: 0.5rem;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+  }
+
+  #app-title {
+    margin-left: 1rem;
+  }
+  
+  label,
+  input,
+  textarea {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input,
+  textarea {
+    font: inherit;
+    padding: 0.2rem 0.4rem;
+    width: 100%;
+    max-width: 30rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+    background: var(--background-color);
+  }
+  
+  button {
+    font: inherit;
+    background: var(--active-color);
+    border: 1px solid var(--active-color);
+    cursor: pointer;
+    color: var(--light-color);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:hover,
+  button:active {
+    background: var(--active-hover-color);
+    border-color: var(--active-hover-color);
+  }
+  
+  .projects {
+    margin: 1rem;
+    border: 1px solid var(--active-color);
+    border-radius: var(--border-radius-l);
+    overflow: hidden;
+  }
+  
+  .projects header {
+    background: var(--active-color);
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #finished-projects {
+    border-color: var(--finished-color);
+  }
+  
+  #finished-projects header {
+    background: var(--finished-color);
+  }
+  
+  .projects h2 {
+    margin: 0;
+    color: var(--light-color);
+  }
+  
+  .projects ul {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+  }
+  
+  .projects li {
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: 1rem;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+  }
+  
+  .projects li h2 {
+    color: var(--active-color);
+    margin: 0.5rem 0;
+  }
+  
+  #finished-projects li h2 {
+    color: var(--finished-color);
+  }
+  
+  .projects li h3 {
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  
+  .project li p {
+    margin: 0;
+  }
+  
+  .droppable {
+    background: var(--active-drag-color);
+  }
+  
+  #finished-projects .droppable {
+    background: var(--finished-drag-color);
+  }
+  
+  #user-input {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--active-color);
+    background: var(--form-background-color);
+    border-radius: var(--border-radius-l);
+  }
+  
