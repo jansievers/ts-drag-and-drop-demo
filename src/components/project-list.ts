@@ -2,12 +2,12 @@ import { Autobind } from "../decorators/autobind.js";
 import { DragTarget } from "../models/drag-interfaces.js";
 import { Project, ProjectStatusEnum } from "../models/project.js";
 import { ProjectState } from "../state/project-state.js";
-import { ProjectComponent } from "./base-component.js";
+import Component from "./base-component.js";
 import { ProjectItem } from "./project-item.js";
 
 const state = ProjectState.getInstance();
 
-export class ProjectList extends ProjectComponent<HTMLDivElement, HTMLElement> implements DragTarget {
+export class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget {
     public assignedProjects!: Project[];
 
     // This time all the action happens in the constructor, no bootstrap-method.

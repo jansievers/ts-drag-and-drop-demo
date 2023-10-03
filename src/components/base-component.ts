@@ -1,4 +1,7 @@
-export abstract class ProjectComponent<T extends HTMLElement, U extends HTMLElement> {
+// Used default export here, import works like this then:
+// import NameOfYourChoice from "./base-component.js";
+
+export default abstract class ProjectComponent<T extends HTMLElement, U extends HTMLElement> {
     public templateElement!: HTMLTemplateElement;
     public hostElement!: T;  // = app
     public element!: U;

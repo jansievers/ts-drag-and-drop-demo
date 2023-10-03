@@ -1,11 +1,11 @@
-import { Autobind } from "../decorators/autobind.js";
+import { Autobind as AutobindAlias } from "../decorators/autobind.js";
 import { ProjectState } from "../state/project-state.js";
-import { Validateable, validate } from "../util/validation.js";
-import { ProjectComponent } from "./base-component.js";
+import * as validation from "../util/validation.js";
+import Component from "./base-component.js";
 
 const state = ProjectState.getInstance();
 
-export class ProjectInput extends ProjectComponent<HTMLDivElement, HTMLFormElement> {
+export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     public formElementTitle!: HTMLInputElement;
     public formElementDesc!: HTMLTextAreaElement;
     public formElementPeople!: HTMLInputElement;
@@ -34,25 +34,25 @@ export class ProjectInput extends ProjectComponent<HTMLDivElement, HTMLFormEleme
         const descr = this.formElementDesc.value;
         const people = this.formElementPeople.value;
         
-        const titleValidateable: Validateable = {
+        const titleValidateable: validation.Validateable = {
             value: title, required: true
         };
-        const descrValidateable: Validateable = {
+        const descrValidateable: validation.Validateable = {
             value: descr,
             required: true,
             minLength: 5,
             maxLength: 20
         };
-        const peopleValidateable: Validateable = {
+        const peopleValidateable: validation.Validateable = {
             value: people,
             required: true,
             min: 2
         };
         // Todo: add error message(s) about what is invalid
         if (
-            !validate(titleValidateable) ||
-            !validate(descrValidateable) ||
-            !validate(peopleValidateable)
+            !validation.validate(titleValidateable) ||
+            !validation.validate(descrValidateable) ||
+            !validation.validate(peopleValidateable)
         ) {
             alert('Invalid!');
             return;
@@ -62,7 +62,7 @@ export class ProjectInput extends ProjectComponent<HTMLDivElement, HTMLFormEleme
     }
 
     // Autobind this decoratpr
-    @Autobind
+    @AutobindAlias
     private submitHandler(e: Event) {
 
         e.preventDefault();
